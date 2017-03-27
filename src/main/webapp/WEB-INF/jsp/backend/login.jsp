@@ -27,6 +27,7 @@
            <input type="password" autocomplete="off" class="form-control" name="password" placeholder="密码" />
          </div>
        </div>
+       <input type="hidden" name="guard" value="no"/>
      <!--   <div class="form-group">
           <input type="password" autocomplete="off" class="form-control" placeholder="验证码"
               style="display: inline-block;width: 50%;" />

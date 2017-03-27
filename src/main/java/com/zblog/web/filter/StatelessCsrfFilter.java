@@ -80,6 +80,10 @@ public class StatelessCsrfFilter extends OncePerRequestFilter{
       boolean ajax = ServletUtils.isAjax(request);
       CookieUtil cookieUtil = new CookieUtil(request, response);
       String csrfToken = cookieUtil.getCookie(Constants.COOKIE_CSRF_TOKEN, false);
+      if(StringUtils.isBlank(csrfToken))
+      {
+    	  csrfToken = request.getParameter(Constants.CSRF_TOKEN);
+      }
       if(ajax && !isAjaxVerificationToken(request, csrfToken)){
         response.setContentType("application/json");
         response.setCharacterEncoding(Constants.ENCODING_UTF_8.name());
