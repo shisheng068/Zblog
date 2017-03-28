@@ -59,8 +59,15 @@ public class StaticTemplate{
     map.put("categorys", categoryManager.listAsTree());
     map.put("pages", postManager.listPageAsTree());
 
-    FreeMarkerUtils.doProcessTemplate("/header.html", new File(WebConstants.APPLICATION_PATH, WebConstants.PREFIX
-        + "/common/header.html"), map);
+    try
+    {
+    	FreeMarkerUtils.doProcessTemplate("/header.html", new File(WebConstants.APPLICATION_PATH, WebConstants.PREFIX
+    			+ "/common/header.html"), map);
+    }catch(Exception e)
+    {
+    	logger.error(e.getMessage());
+    	e.printStackTrace();
+    }
 
     logger.info("staticHeader");
   }

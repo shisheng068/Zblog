@@ -53,6 +53,7 @@ public class FreeMarkerUtils{
       result = false;
       /* 静态化失败,则删除文件 */
       out.delete();
+      e.printStackTrace();
     }finally{
       IOUtils.closeQuietly(writer);
     }

@@ -63,6 +63,7 @@ public class LoginFilter extends OncePerRequestFilter{
       }else{
         handleException(Threads.getRootCause(e), request, response);
       }
+      e.printStackTrace();
     }finally{
       WebContextFactory.remove();
       cleanup();
